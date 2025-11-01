@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
@@ -260,7 +259,7 @@ export function ImageUpload({
                     setFailedImages(prev => ({ ...prev, [index]: false }));
                     console.log('✅ Image loaded successfully:', imageUrl);
                   }}
-                  onError={(e) => {
+                  onError={() => {
                     setLoadingStates(prev => ({ ...prev, [index]: false }));
                     setFailedImages(prev => ({ ...prev, [index]: true }));
                     console.error('❌ Image failed to load:', imageUrl);

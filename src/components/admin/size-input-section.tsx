@@ -10,20 +10,6 @@ interface SizeInputSectionProps {
 }
 
 export function SizeInputSection({ value, onChange }: SizeInputSectionProps) {
-  // Get size note for standard sizes
-  const getSizeNote = (size: string) => {
-    const sizeNotes: Record<string, string> = {
-      'XS': 'Extra Small - Fits heights 4\'6" - 5\'0" (137-152cm)',
-      'S': 'Small - Fits heights 5\'0" - 5\'3" (152-160cm)',
-      'M': 'Medium - Fits heights 5\'3" - 5\'6" (160-168cm)',
-      'L': 'Large - Fits heights 5\'6" - 6\'0" (168-183cm)',
-      'XL': 'Extra Large - Fits heights 6\'0" - 6\'3" (183-191cm)',
-      'XXL': 'Double Extra Large - Fits heights 6\'3" - 6\'6" (191-198cm)',
-      'One Size': 'One Size Fits Most - Adjustable for various heights'
-    };
-    return sizeNotes[size] || 'Standard size selected';
-  };
-
   // Get size note for custom measurements
   const getSizeNoteFromCustom = (min: string, max: string) => {
     const minNum = parseFloat(min);

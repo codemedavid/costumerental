@@ -13,12 +13,9 @@ import {
   Edit, 
   Trash2, 
   Eye, 
-  EyeOff, 
-  ArrowUp, 
-  ArrowDown,
+  EyeOff,
   Save,
   X,
-  Upload,
   Image as ImageIcon
 } from 'lucide-react';
 import { 
@@ -334,7 +331,7 @@ export function CarouselManagement() {
                 <Switch
                   id="isActive"
                   checked={formData.isActive}
-                  onCheckedChange={(checked) => setFormData({ ...formData, isActive: checked })}
+                  onCheckedChange={(checked: boolean) => setFormData({ ...formData, isActive: checked })}
                 />
                 <Label htmlFor="isActive">Active</Label>
               </div>
@@ -366,7 +363,7 @@ export function CarouselManagement() {
 
       {/* Slides List */}
       <div className="space-y-4">
-        {slides.map((slide, index) => (
+        {slides.map((slide) => (
           <Card key={slide.id} className={!slide.isActive ? 'opacity-50' : ''}>
             <CardContent className="p-4">
               <div className="flex gap-4">
