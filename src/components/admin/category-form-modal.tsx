@@ -24,7 +24,8 @@ export function CategoryFormModal({
     description: '',
     image: '',
     icon: '🎭',
-    slug: ''
+    slug: '',
+    display_order: 0
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -37,7 +38,8 @@ export function CategoryFormModal({
         description: category.description,
         image: category.image,
         icon: category.icon || '🎭',
-        slug: category.slug
+        slug: category.slug,
+        display_order: category.display_order
       });
     } else {
       setFormData({
@@ -45,7 +47,8 @@ export function CategoryFormModal({
         description: '',
         image: '',
         icon: '🎭',
-        slug: ''
+        slug: '',
+        display_order: 0
       });
     }
   }, [category, isOpen]);
