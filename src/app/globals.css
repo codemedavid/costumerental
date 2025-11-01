@@ -228,4 +228,11 @@
   .snap-center {
     scroll-snap-align: center;
   }
+
+  /* Hero Carousel Fixed Height */
+  .hero-carousel {
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+  }
 }

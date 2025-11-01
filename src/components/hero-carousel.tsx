@@ -62,7 +62,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
   return (
     <section 
-      className="relative w-full overflow-hidden"
+      className="hero-carousel relative w-full overflow-hidden"
       style={{ 
         height: '500px',
         minHeight: '500px',
