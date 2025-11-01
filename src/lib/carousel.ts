@@ -37,6 +37,39 @@ export interface UpdateCarouselSlideData extends Partial<CreateCarouselSlideData
   id: string;
 }
 
+interface DatabaseCarouselSlide {
+  id: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  button_text: string;
+  button_link: string;
+  background_image?: string;
+  background_color: string;
+  text_color: string;
+  button_color: string;
+  button_text_color: string;
+  is_active: boolean;
+  display_order: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface UpdateDatabaseData {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  button_text?: string;
+  button_link?: string;
+  background_image?: string;
+  background_color?: string;
+  text_color?: string;
+  button_color?: string;
+  button_text_color?: string;
+  is_active?: boolean;
+  display_order?: number;
+}
+
 // Fetch all active carousel slides
 export async function fetchCarouselSlides(): Promise<CarouselSlide[]> {
   try {
@@ -131,7 +164,7 @@ export async function createCarouselSlide(data: CreateCarouselSlideData): Promis
 // Update a carousel slide
 export async function updateCarouselSlide(data: UpdateCarouselSlideData): Promise<CarouselSlide | null> {
   try {
-    const updateData: any = {};
+    const updateData: UpdateDatabaseData = {};
     
     if (data.title !== undefined) updateData.title = data.title;
     if (data.subtitle !== undefined) updateData.subtitle = data.subtitle;
@@ -186,7 +219,7 @@ export async function deleteCarouselSlide(id: string): Promise<boolean> {
 }
 
 // Transform database snake_case to frontend camelCase
-function transformCarouselSlide(dbSlide: any): CarouselSlide {
+function transformCarouselSlide(dbSlide: DatabaseCarouselSlide): CarouselSlide {
   return {
     id: dbSlide.id,
     title: dbSlide.title,
